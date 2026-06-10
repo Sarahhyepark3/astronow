@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // ⭐️ 이 줄이 반드시 있어야 작동합니다!
+import { Link } from 'react-router-dom'; // 👈 이게 누락되면 링크 에러가 납니다!
 
 export default function Footer() {
   return (
     <footer className="w-full bg-gray-900 text-gray-400 border-t border-gray-800 py-6 px-6 sm:px-12 text-xs leading-relaxed flex-shrink-0">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         
-        {/* 왼쪽 섹션: 최소화된 사업자 정보 */}
+        {/* 왼쪽 섹션: 사업자 등록 전용 표기 */}
         <div className="space-y-1">
           <div className="flex items-center gap-2">
             <span className="font-bold text-sm text-gray-200">아스트로나우(Astronow)</span>
@@ -27,22 +27,21 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* 오른쪽 섹션: 문의사항 및 약관 링크 */}
+        {/* 오른쪽 섹션: 간소화 문의처 및 링크 정렬 구역 */}
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 md:text-right">
           <div>
             <h4 className="font-bold text-gray-200 text-xs">문의사항</h4>
             <p className="text-gray-400">이메일: admin@astronow.co.kr</p>
           </div>
 
-          <div className="flex gap-3 font-medium text-gray-400 pt-1 sm:pt-0">
-            {/* ⭐️ a 태그 대신 Link 태그로 변경되었습니다! */}
+          <div className="flex flex-wrap gap-3 font-medium text-gray-400 pt-1 sm:pt-0">
             <Link to="/terms" className="hover:text-white transition-colors">이용약관</Link>
             <span className="text-gray-700">|</span>
             <Link to="/refund" className="hover:text-white transition-colors">취소 및 환불 정책</Link>
             <span className="text-gray-700">|</span>
-            <Link to="/lexicon" className="hover:text-white transition-colors">점성술 용어사전</Link> 
+            <Link to="/lexicon" className="hover:text-white transition-colors">우주 용어사전</Link>
             <span className="text-gray-700">|</span>
-            <Link to="/privacy" className="hover:text-white font-semibold text-gray-200">개인정보처리방침</Link>
+            <span className="hover:text-white font-semibold text-gray-200 cursor-default">개인정보처리방침</span>
           </div>
         </div>
 
