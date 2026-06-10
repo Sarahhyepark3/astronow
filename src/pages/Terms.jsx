@@ -2,119 +2,75 @@ import React from 'react';
 
 export default function Terms() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 py-16 px-6 sm:px-12 font-sans">
-      <div className="max-w-3xl mx-auto space-y-12">
+    // h-full overflow-y-auto 설정으로 스크롤이 시원하게 작동합니다.
+    <div className="h-full overflow-y-auto bg-gray-950 text-gray-300 p-8 sm:p-20 font-sans">
+      <div className="max-w-3xl mx-auto bg-gray-900 border border-gray-800 p-6 sm:p-10 rounded-xl shadow-2xl">
+        <h1 className="text-2xl font-bold text-white mb-8 border-b border-gray-800 pb-4">이용약관</h1>
         
-        {/* 타이틀 영역 */}
-        <div className="border-b border-gray-800 pb-6">
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-            취소 및 환불 정책
-          </h1>
-          <p className="text-xs text-gray-500 font-mono mt-2 uppercase tracking-wider">
-            Refund & Cancellation Policy
-          </p>
+        <div className="space-y-8 text-sm leading-relaxed">
+          <section>
+            <h2 className="font-bold text-indigo-400 mb-3 text-lg">제1조 (목적)</h2>
+            <p className="text-gray-400">
+              본 약관은 아스트로나우(astronow)(이하 '회사')가 운영하는 웹사이트 및 애플리케이션에서 제공하는 점성술 데이터 분석 서비스, 디지털 리포트 및 관련 제반 서비스(이하 '서비스')의 이용과 관련하여 회사와 회원 간의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적이로 합니다.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-bold text-indigo-400 mb-3 text-lg">제2조 (용어의 정의)</h2>
+            <ul className="list-disc pl-5 space-y-2 text-gray-400">
+              <li><strong className="text-gray-200">회원:</strong> 회사와 이용계약을 체결하고 회사가 제공하는 서비스를 이용하는 고객을 말합니다.</li>
+              <li><strong className="text-gray-200">디지털 콘텐츠:</strong> 회사가 웹사이트를 통해 제공하는 네이탈 차트, 트랜짓 데이터, AI 데이터 분석 리포트 등 일체의 디지털 정보를 말합니다.</li>
+              <li><strong className="text-gray-200">구독 서비스:</strong> 회원이 정기적으로 일정 대가를 지급하고 특정 기간 동안 유료 기능을 제한 없이 이용하는 서비스를 말합니다.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="font-bold text-indigo-400 mb-3 text-lg">제3조 (약관의 명시와 개정)</h2>
+            <p className="text-gray-400">
+              1. 회사는 본 약관의 내용을 회원이 쉽게 알 수 있도록 서비스 화면에 게시합니다.<br />
+              2. 회사는 관련 법령을 위배하지 않는 범위에서 본 약관을 개정할 수 있으며, 약관이 개정될 경우 적용일자 및 개정사유를 명시하여 현행 약관과 함께 서비스 화면에 그 적용일자 7일 전부터 공지합니다.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-bold text-indigo-400 mb-3 text-lg">제4조 (서비스의 제공 및 변경)</h2>
+            <p className="text-gray-400">
+              1. 회사는 회원에게 천체 연산 엔진을 기반으로 한 점성술 차트 생성, 연구 데이터 랩, AI 리포트 생성 등의 서비스를 제공합니다.<br />
+              2. 회사는 컴퓨터 등 정보통신설비의 보수점검, 교체 및 고장, 통신두절 또는 운영상 상당한 이유가 있는 경우 서비스의 제공을 일시적으로 중단할 수 있습니다.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-bold text-indigo-400 mb-3 text-lg">제5조 (유료 서비스의 이용 및 환불)</h2>
+            <p className="text-gray-400">
+              1. 회사가 제공하는 단건 리포트 및 정기 구독 서비스는 유료로 제공되며, 구체적인 결제 금액과 조건은 각 서비스 화면에 표시된 바에 따릅니다.<br />
+              2. 본 서비스는 결제와 동시에 데이터 연산 및 디지털 콘텐츠 제공이 개시되는 특성을 가집니다. 따라서 리포트가 생성 및 제공된 이후에는 전자상거래법 제17조 제2항에 의거하여 원칙적으로 청약철회(환불)가 제한됩니다. 상세한 기준은 별도의 '취소 및 환불 정책'에 따릅니다.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-bold text-indigo-400 mb-3 text-lg">제6조 (지식재산권 및 이용 제한)</h2>
+            <p className="text-gray-400">
+              1. 회사가 작성한 저작물, 점성술 해석 텍스트, 알고리즘, 연산 시스템 및 웹사이트 디자인에 대한 저작권 기타 지식재산권은 회사에 귀속됩니다.<br />
+              2. 회원은 서비스를 이용함으로써 얻은 정보 중 회사에게 지식재산권이 귀속된 정보를 회사의 사전 승낙 없이 복제, 송신, 출판, 배포, 방송 기타 방법에 의하여 영리목적으로 이용하거나 제3자에게 이용하게 하여서는 안 됩니다.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-bold text-indigo-400 mb-3 text-lg">제7조 (회사의 면책조항 - 점성술 서비스 특례)</h2>
+            <p className="text-gray-400">
+              1. 회사가 제공하는 점성술 데이터 분석 및 AI 리포트 결과물은 고전 기법과 천체 연산에 기반한 데이터 분석 자료이며, 과학적 사실을 증명하거나 특정 미래를 확정적으로 예측하지 않습니다.<br />
+              2. 회사는 서비스 내에서 제공되는 정보의 정확성, 신뢰성에 대해 보장하지 않으며, 회원이 본 서비스의 데이터나 해석을 바탕으로 내린 개인적·상업적 결정(투자, 직업 변경, 계약 등 일체의 행위)으로 인해 발생한 결과에 대하여 회사는 책임을 지지 않습니다.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-bold text-indigo-400 mb-3 text-lg">제8조 (관할법원)</h2>
+            <p className="text-gray-400">
+              회사와 회원 간에 발생한 전자상거래 분쟁에 관한 소송은 제소 당시의 회원 주소에 의하고, 주소가 없는 경우에는 거소를 관할하는 지방법원의 전용관할로 합니다. 다만, 제소 당시 회원의 주소 또는 거소가 분명하지 않거나 외국 거주자의 경우에는 민사소송법상의 관할법원에 제기합니다.
+            </p>
+          </section>
         </div>
-
-        {/* 1. 일반 원칙 */}
-        <section className="space-y-3">
-          <h2 className="text-lg font-bold text-gray-200 flex items-center gap-2">
-            <span className="text-indigo-400">1.</span> 일반 원칙
-          </h2>
-          <p className="text-sm text-gray-400 leading-relaxed pl-5">
-            본 정책은 전자상거래 등에서의 소비자보호에 관한 법률(이하 '전자상거래법') 및 관련 규정을 준수하며, 
-            <span className="text-gray-200 font-medium"> 아스트로나우(Astronow)</span>에서 제공하는 점성술 데이터 분석 서비스, 
-            정기 구독권 및 단건 리포트 구매에 대한 취소 및 환불 기준을 규정합니다.
-          </p>
-        </section>
-
-        {/* 2. 서비스 유형별 환불 기준 (표 영역) */}
-        <section className="space-y-4">
-          <h2 className="text-lg font-bold text-gray-200 flex items-center gap-2">
-            <span className="text-indigo-400">2.</span> 서비스 유형별 환불 기준
-          </h2>
-          <p className="text-sm text-gray-400 pl-5">
-            아스트로나우의 서비스는 디지털 콘텐츠 특성에 따라 다음과 같이 환불 기준이 적용됩니다.
-          </p>
-          
-          {/* 테이블 구조 */}
-          <div className="overflow-x-auto pl-5 pt-2">
-            <table className="w-full border-collapse text-left text-xs sm:text-sm border border-gray-800 rounded-lg overflow-hidden">
-              <thead>
-                <tr className="bg-gray-900 text-gray-300 border-b border-gray-800 font-semibold">
-                  <th className="p-3 sm:p-4 w-1/4">서비스 유형</th>
-                  <th className="p-3 sm:p-4 w-3/8 text-emerald-400">환불 가능 기준</th>
-                  <th className="p-3 sm:p-4 w-3/8 text-rose-400">환불 불가 기준 (법 제17조 2항)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-800 text-gray-400 bg-gray-900/30">
-                <tr>
-                  <td className="p-3 sm:p-4 font-medium text-gray-200 bg-gray-900/10">단건 데이터 리포트</td>
-                  <td className="p-3 sm:p-4">결제 후 리포트 열람(생성) 전, <br/>구매일로부터 7일 이내</td>
-                  <td className="p-3 sm:p-4 text-gray-500">결제 완료 후 시스템에서 리포트 생성이 완료되어 열람(제공)된 경우</td>
-                </tr>
-                <tr>
-                  <td className="p-3 sm:p-4 font-medium text-gray-200 bg-gray-900/10">정기결제 (구독제)</td>
-                  <td className="p-3 sm:p-4">결제 후 7일 이내, <br/>서비스 이용 이력이 없는 경우</td>
-                  <td className="p-3 sm:p-4 text-gray-500">결제 후 7일이 경과하거나, 제공된 유료 기능(트랜짓, 차트 데이터 등)을 이용한 경우</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* 3. 정기결제(구독) 해지 및 취소 */}
-        <section className="space-y-3">
-          <h2 className="text-lg font-bold text-gray-200 flex items-center gap-2">
-            <span className="text-indigo-400">3.</span> 정기결제(구독) 해지 및 취소
-          </h2>
-          <ul className="space-y-2 text-sm text-gray-400 pl-5 list-disc list-outside">
-            <li>
-              <span className="text-gray-200 font-semibold">다음 결제일 해지 (구독 취소):</span> 사용자는 언제든지 마이페이지를 통해 다음 결제일에 대한 정기결제 해지를 예약할 수 있습니다. 이 경우 이미 결제된 해당 주기의 이용권은 잔여 기간 동안 정상 유지되며, 다음 결제일부터 요금이 청구되지 않습니다.
-            </li>
-            <li>
-              <span className="text-gray-200 font-semibold">중도 해지 및 환불:</span> 구독 결제일로부터 7일 이내에 유료 데이터를 열람하지 않은 경우 전액 환불이 가능합니다. 단, 유료 기능을 1회 이상 사용한 경우에는 해당 결제 주기의 부분 환불이 불가하며 잔여 기간 동안 서비스가 정상 유지됩니다.
-            </li>
-          </ul>
-        </section>
-
-        {/* 4. 단건 결제 환불 */}
-        <section className="space-y-3">
-          <h2 className="text-lg font-bold text-gray-200 flex items-center gap-2">
-            <span className="text-indigo-400">4.</span> 단건 결제 (데이터 분석 리포트) 환불
-          </h2>
-          <ul className="space-y-2 text-sm text-gray-400 pl-5 list-disc list-outside">
-            <li>
-              단건으로 구매하는 맞춤형 점성술 리포트는 결제 완료와 동시에 소프트웨어를 통해 개별 데이터가 즉시 연산 및 제공되는 <span className="text-purple-400">‘디지털 콘텐츠’</span>입니다.
-            </li>
-            <li>
-              결제 후 리포트가 생성되어 화면에 출력되거나 다운로드 가능한 상태가 된 경우, 디지털 콘텐츠의 제공이 개시된 것으로 보아 전자상거래법에 의거 청약철회(환불)가 제한됩니다.
-            </li>
-            <li>
-              시스템 오류 또는 기술적 장애로 인해 결제 후 리포트가 정상적으로 생성되지 않은 경우, 고객센터로 문의하시면 확인 후 <span className="text-gray-200 font-semibold">100% 전액 환불</span> 처리됩니다.
-            </li>
-          </ul>
-        </section>
-
-        {/* 5. 환불 신청 절차 */}
-        <section className="space-y-3">
-          <h2 className="text-lg font-bold text-gray-200 flex items-center gap-2">
-            <span className="text-indigo-400">5.</span> 환불 신청 절차
-          </h2>
-          <ul className="space-y-2 text-sm text-gray-400 pl-5 list-disc list-outside">
-            <li>
-              <span className="text-gray-200 font-semibold">신청 방법:</span> 마이페이지 내 [결제 내역] 메뉴 또는 고객센터 이메일을 통해 접수하실 수 있습니다.
-            </li>
-            <li>
-              <span className="text-gray-200 font-semibold">처리 기간:</span> 환불 요청이 접수 및 승인된 후, 결제 수단에 따라 영업일 기준 3~7일 내에 승인 취소 또는 지정된 계좌로 환불액이 입금됩니다. (PG사 및 카드사 사정에 따라 소요 기간이 달라질 수 있습니다.)
-            </li>
-          </ul>
-        </section>
-
-        {/* 이메일 컴포넌트 안내 팁 */}
-        <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 text-xs text-gray-500 leading-relaxed">
-          💡 환불 관련 문의사항은 <span className="text-indigo-400 font-medium">admin@astronow.co.kr</span>으로 메일을 보내주시면 신속하게 안내해 드리겠습니다. 이전 푸터에 맞춰 접수처를 일원화했습니다.
-        </div>
-
       </div>
     </div>
   );
