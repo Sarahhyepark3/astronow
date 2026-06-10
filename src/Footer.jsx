@@ -36,7 +36,9 @@ export default function Footer() {
           <div className="flex gap-3 font-medium text-gray-400 pt-1 sm:pt-0">
             <a href="/terms" className="hover:text-white transition-colors">이용약관</a>
             <span className="text-gray-700">|</span>
-            <a href="/privacy" className="hover:text-white font-semibold text-gray-200">개인정보처리방침</a>
+            <a href="/refund" className="hover:text-white transition-colors">취소 및 환불 정책</a> 
+            <span className="text-gray-700">|</span>
+            <a href="/privacy" className="hover:text-white font-semibold text-gray-200">개인정보처리방침</a>        
           </div>
         </div>
 
