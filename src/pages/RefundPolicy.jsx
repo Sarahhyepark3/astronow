@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Terms() {
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 py-16 px-6 sm:px-12 font-sans">
+    <div className="h-full overflow-y-auto bg-gray-950 text-gray-100 py-16 px-6 sm:px-12 font-sans">
       <div className="max-w-3xl mx-auto space-y-12">
         
         {/* 타이틀 영역 */}
