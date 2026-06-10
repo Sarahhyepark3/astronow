@@ -37,48 +37,12 @@ const BookmarkIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
 );
 
-// --- [2] 메인 레이아웃 컴포넌트 ---
-
-export default function App() {
-  const [activeTab, setActiveTab] = useState('workspace');
+// --- [2] 메인 워크스페이스 컴포넌트 ---
+function MainWorkspace() {
   const [rightPanelOpen, setRightPanelOpen] = useState(true);
 
   return (
-    <div className="flex flex-col h-screen bg-gray-900 text-gray-100 font-sans overflow-hidden">
-      
-      {/* 1. 상단 헤더 */}
-      <header className="h-14 bg-gray-950 border-b border-gray-800 flex items-center justify-between px-6 flex-shrink-0 z-20">
-        <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
-                    <StarIcon className="w-5 h-5 text-white" />
-                </div>
-                <span className="font-bold text-lg tracking-wider text-gray-100">ASTRONOW</span>
-            </div>
-            <span className="text-[10px] uppercase tracking-widest text-gray-500 font-semibold mt-1">Workspace</span>
-        </div>
-        
-        <div className="flex-1 max-w-2xl mx-8 relative group">
-            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-indigo-400 transition-colors"/>
-            <input 
-                type="text" 
-                placeholder="차트, 노트 검색 또는 '화성 역행' 같은 키워드 입력 (Cmd + K)" 
-                className="w-full bg-gray-900 border border-gray-800 text-sm text-gray-200 rounded-lg py-2 pl-10 pr-4 focus:outline-none focus:border-indigo-500/50 focus:bg-gray-800 focus:ring-4 focus:ring-indigo-500/10 transition-all placeholder-gray-600"
-            />
-        </div>
-
-        <div className="flex items-center gap-4">
-             <button className="p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-full transition-colors relative">
-                 <HistoryIcon className="w-5 h-5" />
-                 <span className="absolute top-2 right-2 w-2 h-2 bg-indigo-500 rounded-full"></span>
-             </button>
-             <div className="w-8 h-8 rounded-full bg-indigo-900/50 border border-indigo-500/30 flex items-center justify-center text-xs font-bold text-indigo-300">SP</div>
-        </div>
-      </header>
-
-      {/* 2. 메인 바디 */}
-      <div className="flex flex-1 overflow-hidden">
-        
+    <div className="flex flex-1 overflow-hidden">
         {/* [Left Panel] */}
         <nav className="w-64 bg-gray-900 border-r border-gray-800 flex flex-col flex-shrink-0">
             <div className="p-4">
@@ -194,7 +158,7 @@ export default function App() {
                         <textarea 
                             className="flex-1 bg-gray-900/50 p-4 text-sm text-gray-300 resize-none focus:outline-none leading-relaxed font-sans placeholder-gray-600"
                             placeholder="이 차트에 대한 해석이나 아이디어를 기록하세요..."
-                            defaultValue="차트 분석 메모:\n\n1. 상승궁이 처녀자리로 수성의 상태가 중요함.\n2. 10하우스의 화성이 강력한 힘을 발휘하고 있음.\n\n[추가 연구 필요] : 토성의 위치가 7하우스 로드와..."
+                            defaultValue={"차트 분석 메모:\n\n1. 상승궁이 처녀자리로 수성의 상태가 중요함.\n2. 10하우스의 화성이 강력한 힘을 발휘하고 있음.\n\n[추가 연구 필요] : 토성의 위치가 7하우스 로드와..."}
                         ></textarea>
                     </div>
 
@@ -274,33 +238,47 @@ export default function App() {
                 </div>
             )}
         </aside>
-      </div> 
-      {/* 메인 바디(div.flex.flex-1.overflow-hidden) 종료 지점 */}
-      
-      {/* Footer 컴포넌트 호출 */}
-      <Footer />
-      
-    </div> // 최상위 컨테이너(App의 메인 div) 종료
-  );
-}
-
-function MainWorkspace() {
-  return (
-    <div className="flex flex-1 overflow-hidden">
-      {/* 여기에 기존의 좌측 nav, 중앙 main, 우측 aside 패널 내용을 그대로 유지하세요 */}
-      <div className="flex-1 bg-gray-950 flex items-center justify-center text-gray-500">
-        워크스페이스 화면입니다.
-      </div>
     </div>
   );
 }
 
+// --- [3] 최상위 App 컴포넌트 ---
 export default function App() {
   return (
     <BrowserRouter>
       <div className="flex flex-col h-screen bg-gray-900 text-gray-100 font-sans overflow-hidden">
         
-        {/* 메인 콘텐츠 영역 (라우팅 적용) */}
+        {/* 상단 헤더 (모든 페이지 공통 노출) */}
+        <header className="h-14 bg-gray-950 border-b border-gray-800 flex items-center justify-between px-6 flex-shrink-0 z-20">
+            <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                        <StarIcon className="w-5 h-5 text-white" />
+                    </div>
+                    <span className="font-bold text-lg tracking-wider text-gray-100">ASTRONOW</span>
+                </div>
+                <span className="text-[10px] uppercase tracking-widest text-gray-500 font-semibold mt-1">Workspace</span>
+            </div>
+            
+            <div className="flex-1 max-w-2xl mx-8 relative group">
+                <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-indigo-400 transition-colors"/>
+                <input 
+                    type="text" 
+                    placeholder="차트, 노트 검색 또는 '화성 역행' 같은 키워드 입력 (Cmd + K)" 
+                    className="w-full bg-gray-900 border border-gray-800 text-sm text-gray-200 rounded-lg py-2 pl-10 pr-4 focus:outline-none focus:border-indigo-500/50 focus:bg-gray-800 focus:ring-4 focus:ring-indigo-500/10 transition-all placeholder-gray-600"
+                />
+            </div>
+
+            <div className="flex items-center gap-4">
+                 <button className="p-2 text-gray-400 hover:text-white hover:bg-gray-800 rounded-full transition-colors relative">
+                     <HistoryIcon className="w-5 h-5" />
+                     <span className="absolute top-2 right-2 w-2 h-2 bg-indigo-500 rounded-full"></span>
+                 </button>
+                 <div className="w-8 h-8 rounded-full bg-indigo-900/50 border border-indigo-500/30 flex items-center justify-center text-xs font-bold text-indigo-300">SP</div>
+            </div>
+        </header>
+
+        {/* 라우팅 (메인 컨텐츠 영역) */}
         <div className="flex-1 flex flex-col overflow-hidden">
           <Routes>
             <Route path="/" element={<MainWorkspace />} />
@@ -309,10 +287,10 @@ export default function App() {
           </Routes>
         </div>
 
-        {/* 푸터 */}
+        {/* 하단 푸터 */}
         <Footer />
         
       </div>
     </BrowserRouter>
   );
-}        
+}
