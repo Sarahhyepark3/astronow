@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // ⭐️ 이 줄이 반드시 있어야 작동합니다!
 
 export default function Footer() {
   return (
@@ -34,11 +35,12 @@ export default function Footer() {
           </div>
 
           <div className="flex gap-3 font-medium text-gray-400 pt-1 sm:pt-0">
-            <a href="/terms" className="hover:text-white transition-colors">이용약관</a>
+            {/* ⭐️ a 태그 대신 Link 태그로 변경되었습니다! */}
+            <Link to="/terms" className="hover:text-white transition-colors">이용약관</Link>
             <span className="text-gray-700">|</span>
-            <a href="/refund" className="hover:text-white transition-colors">취소 및 환불 정책</a> 
+            <Link to="/refund" className="hover:text-white transition-colors">취소 및 환불 정책</Link>
             <span className="text-gray-700">|</span>
-            <a href="/privacy" className="hover:text-white font-semibold text-gray-200">개인정보처리방침</a>        
+            <Link to="/privacy" className="hover:text-white font-semibold text-gray-200">개인정보처리방침</Link>
           </div>
         </div>
 
