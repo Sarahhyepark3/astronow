@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Footer from './Footer'; 
 import Terms from './pages/Terms'; 
-import RefundPolicy from './pages/RefundPolicy'; 
+import RefundPolicy from './pages/RefundPolicy';
+import Lexicon from './pages/Lexicon';
 
 // --- [1] 아이콘 컴포넌트 (기존 코드 유지) ---
 const BookIcon = ({ className }) => (
@@ -362,6 +363,7 @@ export default function App() {
             <Route path="/" element={<MainWorkspace />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/refund" element={<RefundPolicy />} />
+            <Route path="/lexicon" element={<Lexicon />} />
           </Routes>
         </div>
 
