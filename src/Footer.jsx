@@ -1,5 +1,3 @@
-
-Gemini와의 대화
 import React from 'react';
 
 
