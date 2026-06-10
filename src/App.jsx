@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Footer from './Footer'; 
 
 // --- [1] 아이콘 컴포넌트 ---
 const BookIcon = ({ className }) => (
@@ -270,6 +271,15 @@ export default function App() {
                 </div>
             )}
         </aside>
+
+        </div> 
+      </div> 
+
+      <Footer /> 
+
+    </div>
+  );
+}
 
       </div>
     </div>
