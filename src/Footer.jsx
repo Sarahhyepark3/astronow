@@ -40,6 +40,8 @@ export default function Footer() {
             <span className="text-gray-700">|</span>
             <Link to="/refund" className="hover:text-white transition-colors">취소 및 환불 정책</Link>
             <span className="text-gray-700">|</span>
+            <Link to="/lexicon" className="hover:text-white transition-colors">점성술 용어사전</Link> 
+            <span className="text-gray-700">|</span>
             <Link to="/privacy" className="hover:text-white font-semibold text-gray-200">개인정보처리방침</Link>
           </div>
         </div>
