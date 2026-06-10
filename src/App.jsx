@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+// 1. 라우터 연결을 위한 기능들을 라이브러리에서 불러옵니다
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from './Footer'; 
+import RefundPolicy from './pages/RefundPolicy'; // 2. 환불정책 페이지를 불러옵니다
 
-// --- [1] 아이콘 컴포넌트 ---
+// --- [1] 아이콘 컴포넌트 (기존 코드 그대로 유지) ---
 const BookIcon = ({ className }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
 );
 const ChartIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-        <path d="M2 12h20" />
+        <circle cx="12" cy="12" r="10" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /><path d="M2 12h20" />
     </svg>
 );
 const BrainIcon = ({ className }) => (
@@ -34,15 +35,10 @@ const BookmarkIcon = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
 );
 
-// --- [2] 메인 레이아웃 컴포넌트 ---
-
-export default function App() {
-  const [activeTab, setActiveTab] = useState('workspace');
-  const [rightPanelOpen, setRightPanelOpen] = useState(true);
-
+// 분리된 대시보드 컴포넌트 (기존 메인 화면을 라우터에 넣기 위해 분리했습니다)
+function DashboardContent({ rightPanelOpen, setRightPanelOpen }) {
   return (
     <div className="flex flex-col h-screen bg-gray-900 text-gray-100 font-sans overflow-hidden">
-      
       {/* 1. 상단 헤더 */}
       <header className="h-14 bg-gray-950 border-b border-gray-800 flex items-center justify-between px-6 flex-shrink-0 z-20">
         <div className="flex items-center gap-4">
@@ -75,7 +71,6 @@ export default function App() {
 
       {/* 2. 메인 바디 */}
       <div className="flex flex-1 overflow-hidden">
-        
         {/* [Left Panel] */}
         <nav className="w-64 bg-gray-900 border-r border-gray-800 flex flex-col flex-shrink-0">
             <div className="p-4">
@@ -271,13 +266,44 @@ export default function App() {
                 </div>
             )}
         </aside>
-      </div> 
-      {/* 메인 바디(div.flex.flex-1.overflow-hidden) 종료 지점 */}
-      
-      {/* Footer 컴포넌트 호출 */}
-      <Footer />
-      
-    </div> // 최상위 컨테이너(App의 메인 div) 종료
+      </div>
+    </div>
   );
 }
+
+// --- [2] 메인 레이아웃 컴포넌트 (라우터 중심 제어 구조로 변경) ---
+export default function App() {
+  const [activeTab, setActiveTab] = useState('workspace');
+  const [rightPanelOpen, setRightPanelOpen] = useState(true);
+
+  return (
+    // 3. 전체 서비스를 BrowserRouter로 감싸 길을 열어줍니다.
+    <BrowserRouter>
+      {/* 푸터 고정 및 전체 화면 스크롤 제어를 위해 컨테이너 속성을 재정의합니다. */}
+      <div className="flex flex-col min-h-screen bg-gray-950 text-gray-100 font-sans overflow-y-auto">
         
+        {/* 4. 브라우저 주소 경로별로 알맞은 컴포넌트를 스위칭합니다. */}
+        <div className="flex-grow">
+          <Routes>
+            {/* 기본 주소일 때는 대시보드를 보여줍니다. */}
+            <Route 
+              path="/" 
+              element={
+                <DashboardContent 
+                  rightPanelOpen={rightPanelOpen} 
+                  setRightPanelOpen={setRightPanelOpen} 
+                />
+              } 
+            />
+            {/* 👈 사라님이 질문하신 핵심! /refund 주소일 때는 환불 정책 페이지를 연결합니다 */}
+            <Route path="/refund" element={<RefundPolicy />} />
+          </Routes>
+        </div>
+        
+        {/* 5. 어떤 주소에 있든 푸터는 항상 최하단에 예쁘게 고정되어 보여집니다. */}
+        <Footer />
+        
+      </div>
+    </BrowserRouter>
+  );
+}
