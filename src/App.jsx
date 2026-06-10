@@ -271,10 +271,13 @@ export default function App() {
                 </div>
             )}
         </aside>
-
-        </div> 
       </div> 
-<Footer />
-    </div>
+      {/* 메인 바디(div.flex.flex-1.overflow-hidden) 종료 지점 */}
+      
+      {/* Footer 컴포넌트 호출 */}
+      <Footer />
+      
+    </div> // 최상위 컨테이너(App의 메인 div) 종료
   );
 }
+        
