@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Footer from './Footer'; 
+import Terms from './pages/Terms'; 
+import RefundPolicy from './pages/RefundPolicy'; 
 
 // --- [1] 아이콘 컴포넌트 ---
 const BookIcon = ({ className }) => (
@@ -280,4 +283,36 @@ export default function App() {
     </div> // 최상위 컨테이너(App의 메인 div) 종료
   );
 }
+
+function MainWorkspace() {
+  return (
+    <div className="flex flex-1 overflow-hidden">
+      {/* 여기에 기존의 좌측 nav, 중앙 main, 우측 aside 패널 내용을 그대로 유지하세요 */}
+      <div className="flex-1 bg-gray-950 flex items-center justify-center text-gray-500">
+        워크스페이스 화면입니다.
+      </div>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <div className="flex flex-col h-screen bg-gray-900 text-gray-100 font-sans overflow-hidden">
         
+        {/* 메인 콘텐츠 영역 (라우팅 적용) */}
+        <div className="flex-1 flex flex-col overflow-hidden">
+          <Routes>
+            <Route path="/" element={<MainWorkspace />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/refund" element={<RefundPolicy />} />
+          </Routes>
+        </div>
+
+        {/* 푸터 */}
+        <Footer />
+        
+      </div>
+    </BrowserRouter>
+  );
+}        
